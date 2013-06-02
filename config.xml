@@ -14,4 +14,5 @@
         Girgis Ghattas
     </author>
 
+    <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
 </widget>
