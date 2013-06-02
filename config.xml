@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.concerten"
+        versionCode="10" 
+        version   = "1.0.0">
+    <name>Concerten App</name>
+
+    <description>
+        Prototype Concerten-applicatie in opdracht van Defacto.
+    </description>
+
+    <author href="https://build.phonegap.com" email="girgis94@gmail.com">
+        Girgis Ghattas
+    </author>
+
+</widget>
