@@ -86,7 +86,7 @@
 		<!-- Eind twee kolommen grid -->
 		<!-- Begin link naar website -->
 		<div id="div-website">
-			<a href="<%= website %>"  onclick="navigator.app.loadUrl('<%= website %>', { openExternal:true } ); 
+			<a  onclick="navigator.app.loadUrl('<%= website %>', { openExternal:true } ); 
 
 " data-role="button" data-inline="true">Naar website</a>
 		</div>
@@ -113,7 +113,7 @@
 					<td><%= venue.location.street %></td>
 					<td><%= venue.location.postalcode %> <%= venue.location.city %> <%= venue.location.country %></td>	
 					<td><%= venue.phonenumber %></td>
-					<td><a href="<%= venue.website %>" onclick="navigator.app.loadUrl('<%= venue.website %>', { openExternal:true } ); 
+					<td><a onclick="navigator.app.loadUrl('<%= venue.website %>', { openExternal:true } ); 
 
 "><%= venue.website %></a></td>
 				</tr>
