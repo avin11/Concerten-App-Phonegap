@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <title>Concerten app</title>
+
+    <!-- jQuery mobile stylesheet -->
+    <link rel="stylesheet" href="stijl/derden/jquery.mobile.css">
+
+    <!-- Stylesheet van de concerten app -->
+	<link rel="stylesheet" href="stijl/app.css">    
+
+    <!-- Javascript libraries -->
+    <script src="js/derden/jquery.js"></script>
+    <script type="text/javascript">
+		// Schakel jQuery mobile router uit (om ruimte te maken voor de router van Backbone)
+		$(document).bind("mobileinit", function () {
+			$.mobile.ajaxEnabled = false;
+			$.mobile.linkBindingEnabled = false;
+			$.mobile.hashListeningEnabled = false;
+			$.mobile.pushStateEnabled = false;
+			$.mobile.changePage.defaults.changeHash = false;
+		});
+	</script>
+    <script src="js/derden/jquery.mobile.js"></script>
+    <script src="js/derden/underscore.js"></script>
+    <script src="js/derden/backbone.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCU2U7UzKw_FY_E305NpFKJ7CVMyiLJhak&sensor=false"></script>
+
+
+    <!-- Script van de app -->
+    <script src="js/app.js"></script>
+
+    <!-- Template concert -->
+	<script type="text/template" id="concert-template">
+		<h2><%= title %></h2>
+			<!-- Begin navigatiebalk -->
+			<div id="concert-navigatie" data-role="navbar">
+			    <ul>
+			        <li><a href="#concert/<%= id %>" id="button-concert-details" class="ui-btn-active">Details</a></li>
+			        <li><a href="#concert/<%= id %>/locatie" id="button-concert-locatie">Locatie</a></li>
+			        <li><a href="#concert/<%= id %>/artiesten" id="button-concert-artiesten">Artiest(en)</a></li>
+			    </ul>
+			</div>
+			<!-- Einde navigatiebalk -->
+
+			<!-- Begin inhoud concert info -->
+			<div id="concert-infotab">
+				
+			</div>
+			<!-- Eind inhoud concert info -->
+	</script>
+    <!-- Eind template concert -->
+
+    <!-- Template concert details -->
+	<script type="text/template" id="concert-details-template">
+		<!-- Begin twee kolommen grid -->
+		    <!-- Begin poster -->
+		    <div id="div-concertposter">
+		    		<a href="#concert/<%= id %>" id="poster_link"><img src="<%= image[2]["#text"] %>" id="poster_afbeelding" class="klein" alt="Poster"></a>
+		    </div>
+		    <!-- Eind poster -->
+		    <div id="div-concertdetails">
+				<!-- Begin tabel met concertdetails -->
+					<table id="tabel-concertdetails" data-role="table" data-reflow="true">
+						<thead>
+						<tr>
+							<th>Datum</th>
+							<th>Tijd</th>
+							<th>Omschrijving</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= dag %>-<%= maand %>-<%= jaar %></td>
+							<td><%= uur %>:<%= minuut.toString().length < 2 ?  '0' + minuut.toString() : minuut %></td>
+							<td>
+								<%= description %>
+							</td>	
+						</tr>
+					</tbody>
+					</table>
+				<!-- Eind tabel met concertdetails -->
+		    </div>
+		</div>
+		<!-- Eind twee kolommen grid -->
+		<!-- Begin link naar website -->
+		<div id="div-website">
+			<a href="<%= website %>" data-role="button" data-inline="true">Naar website</a>
+		</div>
+		<!-- Eind link naar website -->
+	</script>
+    <!-- Eind template concert details -->
+
+    <!-- Template concert locatie -->
+	<script type="text/template" id="concert-locatie-template">
+		<!-- Begin tabel met locatie -->
+			<table id="tabel-concertlocatie" data-role="table" data-reflow="true">
+				<thead>
+				<tr>
+					<th>Locatie</th>
+					<th>Adres</th>
+					<th>Postcode</th>
+					<th>Telefoonnummer</th>
+					<th>Website</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= venue.name %></td>
+					<td><%= venue.location.street %></td>
+					<td><%= venue.location.postalcode %> <%= venue.location.city %> <%= venue.location.country %></td>	
+					<td><%= venue.phonenumber %></td>
+					<td><a href="<%= venue.website %>"><%= venue.website %></a></td>
+				</tr>
+			</tbody>
+			</table>
+		<!-- Eind tabel met locatie -->
+		<!-- Begin kaart -->
+			<div id="div-kaart" />
+		<!-- Eind kaart -->
+	</script>
+    <!-- Eind template concert locatie -->
+
+    <!-- Template kaart infoscherm -->
+	<script type="text/template" id="concert-kaart-infoscherm-template">
+		<strong><%= venue.name %></strong><br />
+		<%= venue.location.street %><br />
+		<%= venue.location.city %>
+	</script>
+    <!-- Eind template kaart infoscherm -->
+
+    <!-- Template concert artiesten -->
+	<script type="text/template" id="concert-artiesten-template">
+		<li><%= artiest %></li>
+	</script>
+    <!-- Eind template concert artiesten -->
+
+    <!-- Begin template testdriver -->
+    <script type="text/template" id="testdriver-template">
+    	<p>
+    		<!-- User input -->
+    		<input type="text" name="concertid" data-inline="true" id="driver-concertid" value="3512844">
+    		<!-- Knop -->
+    		<a href="#" data-role="button" id="driver-knop">Concert bekijken</a>
+		</p>
+    </script>
+    <!-- Eind template testdriver -->
+  </head>
+  <body>
+  		<div data-role="page" id="pagina">
+  			<!-- Begin header -->
+			<div data-role="header">
+		    	<h1>Concerten app</h1>
+			</div>
+			<!-- Eind header -->
+
+			<!-- Begin content -->
+			<div data-role="content" id="pagina-content">
+
+			</div>
+			<!-- Eind content -->
+  		</div>
+  </body>
+</html>

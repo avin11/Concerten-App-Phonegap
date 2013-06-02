@@ -1,0 +1,64 @@
+#div-concertposter {
+	text-align: center;
+	margin: 10px 0;
+	z-index: 2;
+	position: relative;
+}
+
+#div-website {
+	clear: both;
+	text-align: center;
+}
+
+#div-kaart {
+	height: 300px;
+	margin-top: 10px;
+}
+
+#lijst-concert-artiesten {
+	margin-top: 15px !important;
+}
+
+
+/* Vanaf iPhone Horizontaal */ 
+@media all and (min-width: 480px){  
+	#tabel-concertlocatie {
+		width: 100%;
+	}
+
+	#div-kaart {
+		width: 100%;
+	} 	
+}       
+
+/* Vanaf iPad verticaal */ 
+@media only screen and (min-width: 768px) {
+	#div-concertdetails {
+		float: left;
+		width: 592px !important;
+	}
+
+	#div-concertposter {
+		float: left;
+		width: 126px;
+		margin-right: 20px !important;
+	}
+
+	#tabel-concertlocatie {
+		float: left;
+		width: 50%;
+	}
+
+	#div-kaart {
+		float :left;
+		width: 50%;
+		height: 400px;
+	} 	
+}  
+
+/* Vanaf iPad horizontaal */ 
+@media only screen and (min-width: 1024px) {
+	#div-concertdetails {
+		width: 848px !important;
+	}
+}  
