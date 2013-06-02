@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Concerten app</title>
-    <base target="_blank"> <!-- Voor mobiele telefoons -->
 
     <!-- jQuery mobile stylesheet -->
     <link rel="stylesheet" href="stijl/derden/jquery.mobile.css">
@@ -87,7 +86,9 @@
 		<!-- Eind twee kolommen grid -->
 		<!-- Begin link naar website -->
 		<div id="div-website">
-			<a href="<%= website %>" data-role="button" data-inline="true" target="_blank">Naar website</a>
+			<a href="<%= website %>"  onclick="navigator.app.loadUrl('<%= website %>', { openExternal:true } ); 
+
+" data-role="button" data-inline="true">Naar website</a>
 		</div>
 		<!-- Eind link naar website -->
 	</script>
@@ -112,7 +113,9 @@
 					<td><%= venue.location.street %></td>
 					<td><%= venue.location.postalcode %> <%= venue.location.city %> <%= venue.location.country %></td>	
 					<td><%= venue.phonenumber %></td>
-					<td><a href="<%= venue.website %>" target="_blank"><%= venue.website %></a></td>
+					<td><a href="<%= venue.website %>" onclick="navigator.app.loadUrl('<%= venue.website %>', { openExternal:true } ); 
+
+"><%= venue.website %></a></td>
 				</tr>
 			</tbody>
 			</table>
