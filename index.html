@@ -87,7 +87,7 @@
 		<!-- Eind twee kolommen grid -->
 		<!-- Begin link naar website -->
 		<div id="div-website">
-			<a href="<%= website %>" data-role="button" data-inline="true">Naar website</a>
+			<a href="<%= website %>" data-role="button" data-inline="true" target="_blank">Naar website</a>
 		</div>
 		<!-- Eind link naar website -->
 	</script>
@@ -112,7 +112,7 @@
 					<td><%= venue.location.street %></td>
 					<td><%= venue.location.postalcode %> <%= venue.location.city %> <%= venue.location.country %></td>	
 					<td><%= venue.phonenumber %></td>
-					<td><a href="<%= venue.website %>"><%= venue.website %></a></td>
+					<td><a href="<%= venue.website %>" target="_blank"><%= venue.website %></a></td>
 				</tr>
 			</tbody>
 			</table>
